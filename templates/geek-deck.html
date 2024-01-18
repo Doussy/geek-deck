@@ -1,228 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Geek Deck</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100dvh;
-        background-color: #1a1a1a;
-        color: #fff;
-        font-family: "Arial", sans-serif;
-      }
 
-      button {
-        font-size: 12px;
-        padding: 10px;
-        margin: 10px;
-        width: 100px;
-        height: 100px;
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geek Deck</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100dvh;
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: "Arial", sans-serif;
+    }
 
-      button img {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 5px;
-      }
+    button {
+      font-size: 12px;
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="row">
-      <h1>Geek Deck</h1>
-    </div>
+    button img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 5px;
+    }
 
-    <div class="row">
-      <button onclick="stageAction()">
-        <img
-          src="{{url_for('static', filename='/images/spotlight.png')}}"
-          alt="Stage Icon"
-        />
-        Stage
-      </button>
-      <button onclick="cameraAction()">
-        <img
-          src="{{url_for('static', filename='/images/camera.png')}}"
-          alt="Camera Icon"
-        />
-        Camera
-      </button>
-      <button onclick="microphoneAction()">
-        <img
-          src="{{url_for('static', filename='/images/microphone.png')}}"
-          alt="Microphone Icon"
-        />
-        Microphone
-      </button>
-    </div>
-    <div class="row">
-      <button onclick="startStopSlides()">
-        <img
-          src="{{url_for('static', filename='/images/slides.png')}}"
-          alt="Slides"
-        />
-        Start/Stop Slides
-      </button>
-      <button onclick="leftArrowAction()">
-        <img
-          src="{{url_for('static', filename='/images/left.png')}}"
-          alt="Left Icon"
-        />
-        Previous Slide
-      </button>
-      <button onclick="rightArrowAction()">
-        <img
-          src="{{url_for('static', filename='/images/right.png')}}"
-          alt="Right Icon"
-        />
-        Next Slide
-      </button>
-    </div>
-    <div class="row">
-      <button onclick="grid()">
-        <img
-          src="{{url_for('static', filename='/images/grid.png')}}"
-          alt="Grid"
-        />
-        Grid
-      </button>
-      <button onclick="floatingTile()">
-        <img
-          src="{{url_for('static', filename='/images/pip.png')}}"
-          alt="Floating Tile"
-        />
-        Floating Tile
-      </button>
-      <button onclick="activeSpeaker()">
-        <img
-          src="{{url_for('static', filename='/images/active.png')}}"
-          alt="Active Speaker"
-        />
-        Active Speaker
-      </button>
-    </div>
-    <div class="row">
-      <button onclick="scene()">
-        <img
-          src="{{url_for('static', filename='/images/scene.png')}}"
-          alt="Scene"
-        />
-        Scene Change
-      </button>
-    </div>
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
 
-    <script>
-      function stageAction() {
-        fetch("/stage", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+<body>
+  <div class="row">
+    <h1>Geek Deck</h1>
+  </div>
 
-      function cameraAction() {
-        fetch("/camera", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+  <div class="row">
+    <button onclick="stageAction()">
+      <img src="{{url_for('static', filename='/images/spotlight.png')}}" alt="Stage Icon" />
+      Stage
+    </button>
+    <button onclick="cameraAction()">
+      <img src="{{url_for('static', filename='/images/camera.png')}}" alt="Camera Icon" />
+      Camera
+    </button>
+    <button onclick="microphoneAction()">
+      <img src="{{url_for('static', filename='/images/microphone.png')}}" alt="Microphone Icon" />
+      Microphone
+    </button>
+  </div>
+  <div class="row">
+    <button onclick="startStopSlides()">
+      <img src="{{url_for('static', filename='/images/slides.png')}}" alt="Slides" />
+      Start/Stop Slides
+    </button>
+    <button onclick="leftArrowAction()">
+      <img src="{{url_for('static', filename='/images/left.png')}}" alt="Left Icon" />
+      Previous Slide
+    </button>
+    <button onclick="rightArrowAction()">
+      <img src="{{url_for('static', filename='/images/right.png')}}" alt="Right Icon" />
+      Next Slide
+    </button>
+  </div>
+  <div class="row">
+    <button onclick="grid()">
+      <img src="{{url_for('static', filename='/images/grid.png')}}" alt="Grid" />
+      Grid
+    </button>
+    <button onclick="floatingTile()">
+      <img src="{{url_for('static', filename='/images/pip.png')}}" alt="Floating Tile" />
+      Floating Tile
+    </button>
+    <button onclick="activeSpeaker()">
+      <img src="{{url_for('static', filename='/images/active.png')}}" alt="Active Speaker" />
+      Active Speaker
+    </button>
+  </div>
+  <div class="row">
+    <button onclick="scene()">
+      <img src="{{url_for('static', filename='/images/scene.png')}}" alt="Scene" />
+      Scene Change
+    </button>
+  </div>
 
-      function microphoneAction() {
-        fetch("/microphone", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+  <script>
+    function stageAction() {
+      fetch("/stage", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function startStopSlides() {
-        fetch("/start_stop_slides", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function cameraAction() {
+      fetch("/camera", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function leftArrowAction() {
-        fetch("/left_arrow", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function microphoneAction() {
+      fetch("/microphone", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function rightArrowAction() {
-        fetch("/right_arrow", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function startStopSlides() {
+      fetch("/start_stop_slides", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function grid() {
-        fetch("/grid", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function leftArrowAction() {
+      fetch("/left_arrow", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function floatingTile() {
-        fetch("/floating_tile", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function rightArrowAction() {
+      fetch("/right_arrow", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function activeSpeaker() {
-        fetch("/active_speaker", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
+    function grid() {
+      fetch("/grid", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
 
-      function scene() {
-        fetch("/scene", {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error:", error));
-      }
-    </script>
-  </body>
+    function floatingTile() {
+      fetch("/floating_tile", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
+
+    function activeSpeaker() {
+      fetch("/active_speaker", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
+
+    function scene() {
+      fetch("/scene", {
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    }
+  </script>
+</body>
+
 </html>

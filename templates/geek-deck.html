@@ -57,49 +57,49 @@
   </div>
 
   <div class="row">
-    <button onclick="stageAction()">
+    <button onclick="stageAction(); vibrate()">
       <img src="{{url_for('static', filename='/images/spotlight.png')}}" alt="Stage Icon" />
       Stage
     </button>
-    <button onclick="cameraAction()">
+    <button onclick="cameraAction(); vibrate()">
       <img src="{{url_for('static', filename='/images/camera.png')}}" alt="Camera Icon" />
       Camera
     </button>
-    <button onclick="microphoneAction()">
+    <button onclick="microphoneAction(); vibrate()">
       <img src="{{url_for('static', filename='/images/microphone.png')}}" alt="Microphone Icon" />
       Microphone
     </button>
   </div>
   <div class="row">
-    <button onclick="startStopSlides()">
+    <button onclick="startStopSlides(); vibrate()">
       <img src="{{url_for('static', filename='/images/slides.png')}}" alt="Slides" />
       Start/Stop Slides
     </button>
-    <button onclick="leftArrowAction()">
+    <button onclick="leftArrowAction(); vibrate()">
       <img src="{{url_for('static', filename='/images/left.png')}}" alt="Left Icon" />
       Previous Slide
     </button>
-    <button onclick="rightArrowAction()">
+    <button onclick="rightArrowAction(); vibrate()">
       <img src="{{url_for('static', filename='/images/right.png')}}" alt="Right Icon" />
       Next Slide
     </button>
   </div>
   <div class="row">
-    <button onclick="grid()">
+    <button onclick="grid(); vibrate()">
       <img src="{{url_for('static', filename='/images/grid.png')}}" alt="Grid" />
       Grid
     </button>
-    <button onclick="floatingTile()">
+    <button onclick="floatingTile(); vibrate()">
       <img src="{{url_for('static', filename='/images/pip.png')}}" alt="Floating Tile" />
       Floating Tile
     </button>
-    <button onclick="activeSpeaker()">
+    <button onclick="activeSpeaker(); vibrate()">
       <img src="{{url_for('static', filename='/images/active.png')}}" alt="Active Speaker" />
       Active Speaker
     </button>
   </div>
   <div class="row">
-    <button onclick="scene()">
+    <button onclick="scene(); vibrate()">
       <img src="{{url_for('static', filename='/images/scene.png')}}" alt="Scene" />
       Scene Change
     </button>
@@ -194,6 +194,13 @@
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((error) => console.error("Error:", error));
+    }
+
+    function vibrate() {
+      if (!("vibrate" in navigator)) {
+        return;
+      }
+      navigator.vibrate(200);
     }
   </script>
 </body>

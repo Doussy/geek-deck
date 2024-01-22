@@ -1,0 +1,62 @@
+[
+    {
+        "route": "/stage",
+        "method": "POST",
+        "keys": ["command", "ctrl", "t"],
+        "name": "Stage"
+    },
+    {
+        "route": "/microphone",
+        "method": "POST",
+        "keys": ["command", "d"],
+        "name": "Microphone"
+    },
+    {
+        "route": "/camera",
+        "method": "POST",
+        "keys": ["command", "e"],
+        "name": "Camera"
+    },
+    {
+        "route": "/start_stop_slides",
+        "method": "POST",
+        "keys": ["command", "p"],
+        "name": "Start/Stop Slides"
+    },
+    {
+        "route": "/left_arrow",
+        "method": "POST",
+        "keys": ["left"],
+        "name": "Left"
+    },
+    {
+        "route": "/right_arrow",
+        "method": "POST",
+        "keys": ["right"],
+        "name": "Right"
+    },
+    {
+        "route": "/grid",
+        "method": "POST",
+        "keys": ["command", "ctrl", "j"],
+        "name": "Grid"
+    },
+    {
+        "route": "/floating_tile",
+        "method": "POST",
+        "keys": ["command", "ctrl", "k"],
+        "name": "Floating Tile"
+    },
+    {
+        "route": "/active_speaker",
+        "method": "POST",
+        "keys": ["command", "ctrl", "l"],
+        "name": "Active Speaker"
+    },
+    {
+        "route": "/scene",
+        "method": "POST",
+        "keys": ["command", "v"],
+        "name": "Scene"
+    }
+]

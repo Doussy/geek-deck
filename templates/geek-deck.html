@@ -1,208 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geek Deck</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100dvh;
-      background-color: #1a1a1a;
-      color: #fff;
-      font-family: "Arial", sans-serif;
-    }
-
-    button {
-      font-size: 12px;
-      padding: 10px;
-      margin: 10px;
-      width: 100px;
-      height: 100px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    button img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 5px;
-    }
-
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="row">
-    <h1>Geek Deck</h1>
-  </div>
-
-  <div class="row">
-    <button onclick="stageAction(); vibrate()">
-      <img src="{{url_for('static', filename='/images/spotlight.png')}}" alt="Stage Icon" />
-      Stage
-    </button>
-    <button onclick="cameraAction(); vibrate()">
-      <img src="{{url_for('static', filename='/images/camera.png')}}" alt="Camera Icon" />
-      Camera
-    </button>
-    <button onclick="microphoneAction(); vibrate()">
-      <img src="{{url_for('static', filename='/images/microphone.png')}}" alt="Microphone Icon" />
-      Microphone
-    </button>
-  </div>
-  <div class="row">
-    <button onclick="startStopSlides(); vibrate()">
-      <img src="{{url_for('static', filename='/images/slides.png')}}" alt="Slides" />
-      Start/Stop Slides
-    </button>
-    <button onclick="leftArrowAction(); vibrate()">
-      <img src="{{url_for('static', filename='/images/left.png')}}" alt="Left Icon" />
-      Previous Slide
-    </button>
-    <button onclick="rightArrowAction(); vibrate()">
-      <img src="{{url_for('static', filename='/images/right.png')}}" alt="Right Icon" />
-      Next Slide
-    </button>
-  </div>
-  <div class="row">
-    <button onclick="grid(); vibrate()">
-      <img src="{{url_for('static', filename='/images/grid.png')}}" alt="Grid" />
-      Grid
-    </button>
-    <button onclick="floatingTile(); vibrate()">
-      <img src="{{url_for('static', filename='/images/pip.png')}}" alt="Floating Tile" />
-      Floating Tile
-    </button>
-    <button onclick="activeSpeaker(); vibrate()">
-      <img src="{{url_for('static', filename='/images/active.png')}}" alt="Active Speaker" />
-      Active Speaker
-    </button>
-  </div>
-  <div class="row">
-    <button onclick="scene(); vibrate()">
-      <img src="{{url_for('static', filename='/images/scene.png')}}" alt="Scene" />
-      Scene Change
-    </button>
-  </div>
-
-  <script>
-    function stageAction() {
-      fetch("/stage", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function cameraAction() {
-      fetch("/camera", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function microphoneAction() {
-      fetch("/microphone", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function startStopSlides() {
-      fetch("/start_stop_slides", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function leftArrowAction() {
-      fetch("/left_arrow", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function rightArrowAction() {
-      fetch("/right_arrow", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function grid() {
-      fetch("/grid", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function floatingTile() {
-      fetch("/floating_tile", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function activeSpeaker() {
-      fetch("/active_speaker", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function scene() {
-      fetch("/scene", {
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error("Error:", error));
-    }
-
-    function vibrate() {
-      if (!("vibrate" in navigator)) {
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geek Deck</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100dvh;
+        background-color: #1a1a1a;
+        color: #fff;
+        font-family: "Arial", sans-serif;
       }
-      navigator.vibrate(200);
-    }
-  </script>
-</body>
 
+      button {
+        font-size: 12px;
+        padding: 10px;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 5px;
+      }
+
+      #buttons-container {
+        display: inline-grid;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="row">
+      <h1>Geek Deck</h1>
+    </div>
+
+    <div id="buttons-container"></div>
+
+    <script>
+      fetch("/endpoints.json")
+        .then((response) => response.json())
+        .then((endpoints) => {
+          // create the function for each endpoint
+          for (const endpoint of endpoints) {
+            window[endpoint.route.slice(1) + "Action"] = function () {
+              fetch(endpoint.route, {
+                method: endpoint.method,
+              })
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error("Error:", error));
+            };
+          }
+
+          // create the buttons
+          const container = document.getElementById("buttons-container");
+          for (const endpoint of endpoints) {
+            const button = document.createElement("button");
+            button.onclick = function () {
+              window[endpoint.route.slice(1) + "Action"]();
+              vibrate();
+            };
+            const img = document.createElement("img");
+            img.src = "/static/images/" + endpoint.route.slice(1) + ".png";
+            img.alt = endpoint.route.slice(1) + " Icon";
+            button.appendChild(img);
+            button.appendChild(
+              document.createTextNode(endpoint.name)
+            );
+            container.appendChild(button);
+          }
+        });
+
+      function vibrate() {
+        if (!("vibrate" in navigator)) {
+          return;
+        }
+        navigator.vibrate(200);
+      }
+    </script>
+  </body>
 </html>
